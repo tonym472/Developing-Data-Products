@@ -1,0 +1,93 @@
+---
+title       : Developing Data Products Presentation     
+subtitle    : Coursera devdataprod-012  
+author      : Tony Mazzola
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap, quiz, shiny, interactive]   # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+The intent of this presentation is to introduce the reader to my Shiny app.
+The data used in the app is the mtcars data.  As a sample I have the first five records below:
+
+```{r echo=FALSE}
+head(mtcars)
+```
+
+--- .class #id
+
+## Application Processing
+
+The Shiny application prompts the user to input a car cylinder number.  Car cylinders only come
+in 4, 6 or 8.  Once the user selects a  car cylinder, the app will do the following:
+
+        1. Return the number you entered
+        2. Return the Minimun Displacement
+        3. Return the Mean Displacement
+        4. Return the Maximum Displacement
+
+--- .class #id
+
+On this page I will show some sample output of the application.
+
+
+1. Number of cylinders selected:
+```{r echo=FALSE}
+library(UsingR)
+data(mtcars)
+No_cyl <- 6
+No_cyl
+```
+
+2. Minimum Displacement:
+```{r echo=FALSE}
+library(UsingR)
+data(mtcars)
+No_cyl <- 6
+newdatatemp <- subset(mtcars, cyl == No_cyl)
+minDisp=min(newdatatemp$disp)
+return(round(minDisp))
+
+```
+
+3. Maximum Displacement:
+```{r echo=FALSE}
+library(UsingR)
+data(mtcars)
+No_cyl <- 6
+newdatatemp <- subset(mtcars, cyl == No_cyl)
+maxDisp=max(newdatatemp$disp)
+return(round(maxDisp))
+
+```
+
+4. Mean Displacement:
+```{r echo=FALSE}
+library(UsingR)
+data(mtcars)
+No_cyl <- 6
+newdatatemp <- subset(mtcars, cyl == No_cyl)
+meanDisp=mean(newdatatemp$disp)
+return(round(meanDisp))
+
+```
+
+
+--- .class #id
+
+
+## Summary
+
+This very basic Shiny application demonstrates the folowing: 
+
+1. The various widgets of the 'shiny' tool.
+2. An understanding of the process of publishing an application in shiny
+3. An interface with R using embedded R code
+
+
